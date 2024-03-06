@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Component</title>
+</head>
+
+<body>
+
+    <h1>Shadow DOM</h1>
+    <div id="root"></div>
+    <span>I am outside the Shadow DOM</span>
+
+    <!-- Server Side Application -->
+    <div id="host">
+        <template shadowrootmode = "open">
+            <style>
+                span{
+                    color: red;
+                }
+            </style>
+            <span> I am in the Shadow Root of the Server Side Renedering </span>
+        </template>
+    </div>
+
+    <button id="upperCase">Convert to Upper Case</button>
+    <button id="upperCaseShadowRoot">Convert Shadow Root to Upper Case </button>
+    <button id="reloadDOM">Reload DOM </button>
+
+
+    <br><br><br>
+    <h1>Shadow DOM with Custom Element</h1>
+    <my-shadowroot color="red"></my-shadowroot>
+
+    <br><br><br>
+    <h1>Templates and Slots</h1>
+    <div id="tempalteSlots">
+
+    </div>
+    <template id="my-paragraph">
+        <p>My paragraph</p>
+    </template>
+
+    <template id="mySlotTag">
+       <button>
+            <slot name="button">Button default text</slot>
+       </button>
+       <p><slot name="para">This is a default text for paragraph</slot></p>
+    </template>
+     
+    
+    <br><br><br>
+    <h1>Template with WebComponent</h1>
+    <template-webcomp>
+        <span slot="button">Submit</span>
+        <span slot="para">This is a text from slot name para</span>
+    </template-webcomp>
+    
+    <script src="./1customElement.js"></script>
+    <script src="./2shadowDom.js"></script>
+    <script src="./3shadowDOMandCustomEle.js"></script>
+    <script src="./4templateandSlots.js"></script>
+</body>
+
+</html>
